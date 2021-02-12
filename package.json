@@ -7,6 +7,6 @@
     "asciidoctor-kroki": "latest"
   },
   "scripts": {
-    "doc": "asciidoctor --require asciidoctor-kroki --destination-dir ./docs ./doc/timelapse.asciidoc ./doc/quickstart.asciidoc"
+    "doc": "asciidoctor --require asciidoctor-kroki --destination-dir ./doc ./doc/timelapse.asciidoc ./doc/quickstart.asciidoc"
   }
 }
