@@ -1,0 +1,72 @@
+= Quickstart
+Ronny Wegener @ {localdate}
+:source-highlighter: highlight.js
+:toc:
+
+== The Development Environment
+
+In the last year, Svelte had some conceptual changes about their tooling.
+To be future proof the latest approach using the svelte-kit and snowpack may be used for development of upcoming svelte applications.
+
+=== Classic Installation (CSR)
+
+.Show Instructions
+[%collapsible]
+====
+1. Make Sure NodeJS + NPM are installed on the system
+2. Create a new directory
+3. Open a terminal and navigate into the created directory
+4. Initialize and configure a new Svelte application template
++
+[source,shell]
+----
+npm init svelte
+----
+5. Install all dependencies +
+`npm install`
+
+====
+
+After the installation the developer finds a clean set of development tools and configuration files (depending on the choosen options during installation).
+
+.Build Pipeline
+[mermaid]
+----
+include::./assets/build-pipeline.mermaid[]
+----
+
+=== Bleeding Edge Installation (SSR)
+
+.Show Instructions
+[%collapsible]
+====
+1. Make Sure NodeJS + NPM are installed on the system
+2. Create a new directory
+3. Open a terminal and navigate into the created directory
+4. Initialize and configure a new Svelte application template
++
+[source,shell]
+----
+npm init svelte@next
+----
+5. Install all dependencies +
+`npm install`
+6. Open the file `svelte.config.js` and optionally change the adapter from `@sveltejs/adapter-node` to `@sveltejs/adapter-static` +
+in case https://itnext.io/client-side-rendering-vs-server-side-rendering-vs-pre-rendering-5d5962221925[Static Pre-Generation (CSR + SSG) instead of Dynamic Pre-Rendering (CSR + SSR)] +
+Then install the adapter +
+`npm install --save-dev @sveltejs/adapter-static`
+7. https://github.com/snowpackjs/snowpack/discussions/1729#discussioncomment-212501[HACK]: Open the file `snowpack.config.js` and fix the plugin field to bypass a current snowpack bug
++
+[source,javascript]
+----
+plugins: [
+    ...require('@sveltejs/snowpack-config').plugins,
+    '@snowpack/plugin-typescript'
+]
+----
+====
+
+== References
+
+1. https://svelte.dev/tutorial/basics[Svelte Tutorial], _Various_, 2020
+2. https://flaviocopes.com/page/list-subscribed/[The Svelte Handbook], _Flavio Copes_, 2019

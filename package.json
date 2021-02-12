@@ -1,0 +1,12 @@
+{
+  "name": "pzv-svelte",
+  "version": "1.0.0",
+  "author": "ronny.wegener@mcs.ch",
+  "devDependencies": {
+    "asciidoctor": "latest",
+    "asciidoctor-kroki": "latest"
+  },
+  "scripts": {
+    "doc": "asciidoctor --require asciidoctor-kroki --destination-dir ./doc ./doc/timelapse.asciidoc ./doc/quickstart.asciidoc"
+  }
+}

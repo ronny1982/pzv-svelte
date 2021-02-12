@@ -1,0 +1,96 @@
+= Web Development Timelapse
+Ronny Wegener @ {localdate}
+:source-highlighter: highlight.js
+:toc:
+
+== Understanding the Document Object Model
+
+The `Document Object Model (DOM)` is a tree based structure consisting of nodes with corresponding properties to present 
+Since it is language independent, various ways exists to generate a DOM.
+The most common and original approach is to use _HTML_ syntax, which will be parsed into _DOM_ by e.g. a Browser.
+A similar approach is implemented in the _WPF_ framework which uses _XAML_ to create a tree of visual/logical nodes.
+
+.Creating DOM with HTML
+[source,html]
+----
+include::./assets/dom-html.html[]
+----
+.Rendered Result for HTML
+image::./assets/dom-html.png[]
+
+The _DOM_ can be fully manipulated with _JavaScript_, so as an alternative to building the _DOM_ from _HTML_ it is possible to create parts or even the whole _DOM_ with vanilla _JavaScript_.
+
+.Manipulating DOM with JavaScript
+[source,html]
+----
+include::./assets/dom-js.html[]
+----
+.Rendered Result for JavaScript
+image::./assets/dom-js.png[]
+
+Again, this approach can be compared to _WPF_ where the user interface can be represented via _XAML_, but it is also possible to create the same result directly from code behind.
+
+## Road to JavaScript UI Frameworks
+
+Due to the overhead it seems less appealing to use _JavaScript_ for creating the _DOM_ at all, so why bother?
+
+Based on the _DOM_ capabilities, it is very inconvenient to extend a static website with dynamic content, since this requires a lot of traversing to insert, update or remove nodes in the tree, requiring some _JavaScript_ glue code to reflect the business logic.
+
+.Manipulating a List
+[source,html]
+----
+include::./assets/dom-manipulation.html[]
+----
+.Rendered Result
+image::./assets/dom-manipulation.png[]
+
+As the complexity growth exponential in relation to the number of the elements and the amount of interactivity, the _JavaScript_ glue code will become quite large for interactive documents.
+
+=== JS Libraries
+
+At first developers started to create JavaScript librariers for interacting with the DOM to reduce boilerplate and duplicated code.
+A popular library which is still used today is jQuery.
+
+=== JS Runtime Frameworks
+
+As time passed by, the focus from creating the DOM with HTML was shifting over to creating DOM Elements with JavaScript.
+First framweworks emerged introducing concepts such as components, binding, MVC, ... .
+In the beginning the JavaScript applications were directly integrated and executed in the browser.
+Later on the trend was to introduce a build step which outputs JavaScript that is run in the browser.
+The additional build step allowed the developers to decouple the JavaScript language dependency for higher abstractions (dialects, intermediate languages, ...).
+
+== The advent of Node.js
+
+The appearance of _Node.js_ was a milestone that drastically changed how web applications were developed.
+
+=== What is Node.js
+
+Node.js is a runtime environment to execute JavaScript source code.
+In that way it is similar to other script engines such as PHP or Python.
+It opened the door to use JavaScript for application development outside of the web browser.
+
+.Node.js Simple Program
+[source,javascript]
+----
+include::./assets/hello.js[]
+----
+
+=== Packet Management with NPM
+
+NPM is a package manager which is very tightly coupled with Node.js and makes it easy to install, update and manage libraries and applications written for Node.js.
+
+Sharing and exchanging applications and libraries for Node.js got momentum and the package repository increased rapidly.
+
+=== Impact on Web Development
+
+Web Developers were now able to write applications in the same language used for web applications.
+As a result the ecosystem around web development was centered around Node.js + NPM with applications and tools such as servers (ExpressJS, Koa), package bundlers (Webpack, Rollup), transpilers (babel), compilers (typescript) and many more...
+
+All major JavaScript frameworks (React, Vue, Angular) have complete toolchains tailored for the Node.js + NPM
+
+== References
+
+1. https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction[Introduction to the DOM], _Mozilla Foundation_, 2020
+2. https://nodejs.dev/learn[Introduction to Node.js], _Various_, 2020
+3. https://medium.com/jspoint/introduction-to-node-js-a-beginners-guide-to-node-js-and-npm-eca9c408f9fe[Introduction to Node.js / A beginners guide to Node.js and NPM], _Uday Hiwarale_, 2019-10-25
+99. https://deno.land/manual[Manual | Deno], _Various_, 2020

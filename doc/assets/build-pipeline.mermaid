@@ -1,0 +1,9 @@
+graph TD
+    .svelte -->|Load| Rollup
+    StaticSources -->|Load| Rollup
+    Rollup -->|Compile| SveltePlugin
+    Rollup -->|Compile| TypescriptPlugin
+    Rollup -->|Compile| CSSPlugin
+    Rollup --> HTML
+    Rollup --> JS[JavaScript Bundle]
+    Rollup --> HTML
